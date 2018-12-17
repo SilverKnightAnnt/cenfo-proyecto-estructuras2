@@ -63,7 +63,7 @@ string Graph::searchDataArc(int pRow, int pColumn) {
 string Graph::showArray() {
     ostringstream stream;
     for (int row = 0; row < 25; row++) {
-        stream << "Ciudad # " << row << " " << getCountriesReference()[row] << "\n";
+        stream << "Ciudad # " << (row + 1) << " " << getCountriesReference()[row] << "\n";
     }
     return stream.str();
 }

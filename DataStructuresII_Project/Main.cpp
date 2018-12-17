@@ -36,28 +36,25 @@ int main(int argc, char** argv) {
         opt = readOption();
         executeAction(opt);
 
-    } while (opt != 9);
+    } while (opt != 6);
 
     return 0;
 }
 
 void showMenu() {
     cout << "\n\n";
-    cout << "1. ---|         REGISTRAR CIUDAD        |--- \n";
-    cout << "2. ---|          BUSCAR CIUDAD          |--- \n";
-    cout << "3. ---|         MOSTRAR CIUDAD          |--- \n";
-    cout << "4. ---|       INSERTAR  ETIQUETA        |--- \n";
-    cout << "5. ---|        MOSTRAR ETIQUETAS        |--- \n";
-    cout << "6. ---|    MOSTRAR UBICACIONES ADYACENTES   |---\n";
-    cout << "7. ---|       BUSCAR CIUDAD (HASH)      |---\n";
-    cout << "8. ---|         CAMINO MÍNIMO           |---\n";
-    cout << "9. ---|             SALIR               |--- \n";
+    cout << "1. ---|           MOSTRAR PAÍS             |--- \n";
+    cout << "2. ---|        MOSTRAR ETIQUETAS           |--- \n";
+    cout << "3. ---|    MOSTRAR UBICACIONES ADYACENTES  |---\n";
+    cout << "4. ---|         BUSCAR PAÍS (HASH)         |---\n";
+    cout << "5. ---|           CAMINO MÍNIMO            |---\n";
+    cout << "6. ---|              SALIR                 |--- \n";
 }
 
 int readOption() {
     int option;
-    cout << "Seleccione accion a realizar: ";
-    cin>>option;
+    cout << "\nSeleccione acción a realizar: ";
+    cin >> option;
 
     return option;
 }
@@ -65,35 +62,25 @@ int readOption() {
 void executeAction(int pOption) {
     switch (pOption) {
         case 1:
-            fillCountryNames();
-            break;
-        case 2:
-            searchContry();
-            break;
-        case 3:
             showCountry();
             break;
-        case 4:
-            insertTag();
-            break;
-        case 5:
+        case 2:
             showTags();
             break;
-        case 6:
+        case 3:
             showAdjacentLocations();
             break;
-        case 7:
+        case 4:
             searchCountryByName();
             break;
-        case 8:
+        case 5:
             showMinimumPath();
             break;
-        case 9:
-            cout << "Cerrando aplicación";
+        case 6:
+            cout << "Cerrando aplicación...";
             break;
         default:
-            cout << "OPCION INVALIDA";
-
+            cout << "OPCIÓN INVÁLIDA";
     }
 }
 
@@ -108,8 +95,6 @@ void fillCountryNames() {
         controller.insertInArray(index, countries[index]);
         controller.addCountryByNameClosedHashC(countries[index]);
     }
-
-
 }
 
 void searchContry() {
@@ -168,7 +153,7 @@ void showTags() {
 
 void showAdjacentLocations() {
     string country, buffer;
-    cout << "Digite el nombre del pais: ";
+    cout << "Digite el nombre del país: ";
     getline(cin, buffer);
     getline(cin, country);
     cout << "\n---Recorridos disponibles---\n";
@@ -176,19 +161,19 @@ void showAdjacentLocations() {
 }
 
 void searchCountryByName() {
-    string country,buffer;
-    cout << "País a buscar: ";
+    string country, buffer;
+    cout << "Nombre del país a buscar: ";
     getline(cin, buffer);
     getline(cin, country);
     cout << "\n" << controller.searchCountryByName(country) << "\n";
 }
 
 void showMinimumPath() {
-    string startingCountry, endingCountry,buffer;
-    cout << "Ingrese ubicación de inicio: ";
+    string startingCountry, endingCountry, buffer;
+    cout << "Ingrese el nombre de la ubicación inicio: ";
     getline(cin, buffer);
     getline(cin, startingCountry);
-    cout << "Ingrese ubicación destino: ";
+    cout << "Ingrese el nombre de la ubicación destino: ";
     getline(cin, endingCountry);
     cout << controller.showMinimumPath(startingCountry, endingCountry);
 }

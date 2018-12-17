@@ -10,6 +10,7 @@
 
 #ifndef ARC_H
 #define ARC_H
+
 #include <stdlib.h>
 #include <algorithm>
 #include <cstdlib>
